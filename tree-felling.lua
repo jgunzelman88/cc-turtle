@@ -64,7 +64,7 @@ function backward()
     else 
         x = x + 1
     end
-    turtle.backward()
+    turtle.back()
 end
 
 function up()
