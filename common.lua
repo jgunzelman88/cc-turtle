@@ -1,14 +1,3 @@
-
-woodSlot = 1
-sapplingSlot = 2
-boneSlot = 3
-fuelSlot = 15
-
-direction = "north"
-x = 0
-y = 0
-z = 0
-
 function reFuel()
     local fuelLevel = turtle.getFuelLevel()
     if fuelLevel < 100 then
@@ -132,25 +121,3 @@ function navigate(xF,yF,zF)
         end
     end
 end
-
-function chopDownTree()
-    if turtle.compare() then
-        print("Chopping tree")
-        turtle.dig()
-        forward()
-        while turtle.compareUp() do
-            turtle.digUp()
-            up()
-        end
-        navigate(0,0,0)
-        setDirection("south")
-        local logs = turtle.getItemCount(woodSlot) - 1
-        turtle.drop(logs)
-    else
-        print("No tree or no log found")
-    end
-end
-
--- Begin 
-
-chopDownTree()
