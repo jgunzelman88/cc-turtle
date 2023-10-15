@@ -1,3 +1,5 @@
+local common = {}
+
 direction = "north"
 x = 0
 y = 0
@@ -127,3 +129,5 @@ function navigate(xF,yF,zF)
         end
     end
 end
+
+return common

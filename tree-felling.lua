@@ -1,4 +1,4 @@
-require "common"
+common = require("common")
 woodSlot = 1
 sapplingSlot = 2
 fuelSlot = 16
