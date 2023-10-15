@@ -134,12 +134,15 @@ end
 
 function chopDownTree()
     if turtle.compare() then
+        print("Chopping tree")
         turtle.dig()
         forward()
         while turtle.compareUp() do
             turtle.digUp()
             up()
         end
+    else
+        print("No tree or no log found")
     end
 end
 
