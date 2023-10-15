@@ -1,7 +1,13 @@
+direction = "north"
+x = 0
+y = 0
+z = 0
+
 function reFuel()
     local fuelLevel = turtle.getFuelLevel()
     if fuelLevel < 100 then
-
+        turtle.select(fuelSlot)
+        turtle.reFuel(1)
     end
 end
 
