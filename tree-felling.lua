@@ -182,9 +182,16 @@ function cleanUp()
     end
 end
 
+function placeSappling()
+    setDirection("north")
+    turtle.select(sapplingSlot)
+    turtle.drop(1)
+end
 -- Begin --
 
 chopDownTree()
 cleanUp()
+placeSappling()
+
 -- 
 
