@@ -43,37 +43,37 @@ end
 
 function forward()
     if direction == "north" then 
-        z++
+        z = z + 1
     elseif direction == "south" then
-        z--
+        z = z - 1
     elseif direction == "east" then
-        x++
+        x = x + 1
     else 
-        x--
+        x = x - 1
     end
     turtle.forward()
 end
 
 function backward()
     if direction == "north" then 
-        z--
+        z = z - 1
     elseif direction == "south" then
-        z++
+        z = z + 1
     elseif direction == "east" then
-        x--
+        x = x - 1
     else 
-        x++
+        x = x + 1
     end
     turtle.backward()
 end
 
 function up()
-    y++
+    y = y + 1
     turtle.up()
 end
 
 function down()
-    y--
+    y = y - 1
     turtle.down()
 end
 
