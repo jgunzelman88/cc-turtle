@@ -1,7 +1,6 @@
 
 woodSlot = 1
 sapplingSlot = 2
-boneSlot = 3
 fuelSlot = 15
 
 direction = "north"
@@ -134,8 +133,10 @@ function navigate(xF,yF,zF)
 end
 
 function chopDownTree()
+    turtle.select(woodSlot)
     if turtle.compare() then
         print("Chopping tree")
+        
         turtle.dig()
         forward()
         while turtle.compareUp() do
@@ -174,9 +175,16 @@ function cleanUp()
     turtle.suck()
     forward()
     navigate(0,0,0)
+    setDirection("south")
+    for i=3,15,1 do 
+        turtle.select(i)
+        turtle.drop()
+    end
 end
--- Begin 
 
+-- Begin --
+
+chopDownTree()
 cleanUp()
--- chopDownTree()
+-- 
 
