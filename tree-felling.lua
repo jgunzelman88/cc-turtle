@@ -132,4 +132,3 @@ function navigate(xF,yF,zF)
     end
 end
 
-navigate(2,0,2)
