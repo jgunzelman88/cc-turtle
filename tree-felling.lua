@@ -1,7 +1,7 @@
 
 woodSlot = 1
 sapplingSlot = 2
-fuelSlot = 15
+fuelSlot = 16
 
 direction = "north"
 x = 0
@@ -11,7 +11,8 @@ z = 0
 function reFuel()
     local fuelLevel = turtle.getFuelLevel()
     if fuelLevel < 100 then
-
+        turtle.select(fuelSlot)
+        turtle.reFuel(1)
     end
 end
 
@@ -185,13 +186,14 @@ end
 function placeSappling()
     setDirection("north")
     turtle.select(sapplingSlot)
-    turtle.drop(1)
+    turtle.place()
 end
 -- Begin --
 
-chopDownTree()
-cleanUp()
-placeSappling()
-
+while true do
+    chopDownTree()
+    cleanUp()
+    placeSappling()
+    reFuel()
+end
 -- 
-
