@@ -16,11 +16,11 @@ function reFuel()
 end
 
 function turnLeft()
-    if direction == "north" then
+    if direction == "north" 
         direction = "west"
-    elseif direction == "west" then
-        direction = "south" then
-    elseif direction == "south" then
+    elseif direction == "west" 
+        direction = "south" 
+    elseif direction == "south" 
         direction = "east" 
     else
         direction = "north" 
@@ -29,11 +29,11 @@ function turnLeft()
 end
 
 function turnRight()
-    if direction == "north" then
+    if direction == "north" 
         direction = "east"
-    elseif direction == "east" then
-        direction = "south" then
-    elseif direction == "south" then
+    elseif direction == "east" 
+        direction = "south" 
+    elseif direction == "south" 
         direction = "west" 
     else
         direction = "north" 
@@ -42,11 +42,11 @@ function turnRight()
 end
 
 function forward()
-    if direction == "north" then 
+    if direction == "north"  
         z++
-    elseif direction = "south" then
+    elseif direction = "south" 
         z--
-    elseif direction = "east" then
+    elseif direction = "east" 
         x++
     else 
         x--
@@ -55,11 +55,11 @@ function forward()
 end
 
 function backward()
-    if direction == "north" then 
+    if direction == "north"  
         z--
-    elseif direction = "south" then
+    elseif direction = "south" 
         z++
-    elseif direction = "east" then
+    elseif direction = "east" 
         x--
     else 
         x++
