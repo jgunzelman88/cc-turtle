@@ -132,3 +132,17 @@ function navigate(xF,yF,zF)
     end
 end
 
+function chopDownTree()
+    if turtle.compare() then
+        turtle.dig()
+        forward()
+        while turtle.compareUp() do
+            turtle.digUp()
+            up()
+        end
+    end
+end
+
+-- Begin 
+
+chopDownTree()
