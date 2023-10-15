@@ -89,12 +89,12 @@ function navigate(xF,yF,zF)
     local yDis = yF - y;
     if yDis > 0 then
         print("Moving up " .. yDis)
-        for i=yDis,-1,1 do
+        for i=yDis,1,-1 do
             up()
         end
     else 
         print("Moving down " .. yDis)
-        for i=yDis,1,-1 do
+        for i=yDis,-1,1 do
             down()
         end
     end
