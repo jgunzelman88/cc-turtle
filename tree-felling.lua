@@ -1,3 +1,5 @@
+require "socket"
+
 woodSlot = 1
 sapplingSlot = 2
 boneSlot = 3
@@ -141,6 +143,7 @@ function chopDownTree()
             turtle.digUp()
             up()
         end
+        navigate(0,0,0)
     else
         print("No tree or no log found")
     end
