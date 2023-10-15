@@ -79,7 +79,7 @@ end
 
 function setDirection(directionF)
     while direction ~= directionF do
-        print("Turning to" .. directionF .. " currently " .. direction)
+        print("Turning to " .. directionF .. " currently " .. direction)
         turnLeft()
     end
 end
@@ -88,10 +88,12 @@ function navigate(xF,yF,zF)
     -- navigate y 
     local yDis = yF - y;
     if yDis < 0 then
+        print("Moving up " .. yDis)
         for i=yDis,0,1 do
             up()
         end
     else 
+        print("Moving down " .. yDis)
         for i=yDis,0,-1 do
             down()
         end
@@ -100,10 +102,12 @@ function navigate(xF,yF,zF)
     -- navigate z
     local zDis = zF - z
     if zDis < 0 then
+        print("Moving north " .. zDis)
         for i=zDis,0,1 do
             forward()
         end
     else 
+        print("Moving south " .. zDis)
         for i=zDis,0,-1 do
             backward()
         end
@@ -112,10 +116,12 @@ function navigate(xF,yF,zF)
     -- navigate x
     local xDis = xF - x
     if xDis < 0 then
+        print("Moving east " .. xDis)
         for i=xDis,0,1 do
             forward()
         end
     else 
+        print("Moving west " .. xDis)
         for i=xDis,0,-1 do
             backward()
         end
