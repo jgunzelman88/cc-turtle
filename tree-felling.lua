@@ -1,4 +1,4 @@
-common = require("common")
+common = os.loadAPI("./common.lua")
 woodSlot = 1
 sapplingSlot = 2
 fuelSlot = 16
@@ -8,13 +8,13 @@ function chopDownTree()
     if turtle.compare() then
         print("Chopping tree")
         turtle.dig()
-        common.forward()
+        forward()
         while turtle.compareUp() do
             turtle.digUp()
             up()
         end
-        common.navigate(0,0,0)
-        common.setDirection("south")
+        navigate(0,0,0)
+        setDirection("south")
         local logs = turtle.getItemCount(woodSlot) - 1
         turtle.drop(logs)
     else
@@ -25,27 +25,27 @@ end
 function cleanUp()
     setDirection("west")
     turtle.suck()
-    common.forward()
+    forward()
     turtle.suck()
-    common.turnRight()
+    turnRight()
     turtle.suck()
-    common.forward()
+    forward()
     turtle.suck()
-    common.forward()
+    forward()
     turtle.suck()
-    common.turnRight()
+    turnRight()
     turtle.suck()
-    common.forward()
+    forward()
     turtle.suck()
-    common.forward()
+    forward()
     turtle.suck()
-    common.turnRight()
+    turnRight()
     turtle.suck()
-    common.forward()
+    forward()
     turtle.suck()
-    common.forward()
-    common.navigate(0,0,0)
-    common.setDirection("south")
+    forward()
+    navigate(0,0,0)
+    setDirection("south")
     for i=3,15,1 do 
         turtle.select(i)
         turtle.drop()
@@ -53,7 +53,7 @@ function cleanUp()
 end
 
 function placeSappling()
-    common.setDirection("north")
+    setDirection("north")
     turtle.select(sapplingSlot)
     turtle.place()
 end
