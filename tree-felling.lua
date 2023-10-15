@@ -101,7 +101,7 @@ function navigate(xF,yF,zF)
     setDirection("north")
     -- navigate z
     local zDis = zF - z
-    if zDis < 0 then
+    if zDis > 0 then
         print("Moving north " .. zDis)
         for i=zDis,0,1 do
             print("Moving forward ")
@@ -117,7 +117,7 @@ function navigate(xF,yF,zF)
     setDirection("east")
     -- navigate x
     local xDis = xF - x
-    if xDis < 0 then
+    if xDis > 0 then
         print("Moving east " .. xDis)
         for i=xDis,0,1 do
             print("Moving forward ")
