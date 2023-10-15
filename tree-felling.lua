@@ -104,11 +104,13 @@ function navigate(xF,yF,zF)
     if zDis < 0 then
         print("Moving north " .. zDis)
         for i=zDis,0,1 do
+            print("Moving forward ")
             forward()
         end
     else 
         print("Moving south " .. zDis)
         for i=zDis,0,-1 do
+            print("Moving backward ")
             backward()
         end
     end
@@ -118,11 +120,13 @@ function navigate(xF,yF,zF)
     if xDis < 0 then
         print("Moving east " .. xDis)
         for i=xDis,0,1 do
+            print("Moving forward ")
             forward()
         end
     else 
         print("Moving west " .. xDis)
         for i=xDis,0,-1 do
+            print("Moving backward ")
             backward()
         end
     end
