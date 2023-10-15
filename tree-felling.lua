@@ -151,6 +151,32 @@ function chopDownTree()
     end
 end
 
+function cleanUp()
+    setDirection("west")
+    turtle.suck()
+    forward()
+    turtle.suck()
+    turnRight()
+    turtle.suck()
+    forward()
+    turtle.suck()
+    forward()
+    turtle.suck()
+    turnRight()
+    turtle.suck()
+    forward()
+    turtle.suck()
+    forward()
+    turtle.suck()
+    turnRight()
+    turtle.suck()
+    forward()
+    turtle.suck()
+    forward()
+    navigate(0,0,0)
+end
 -- Begin 
 
-chopDownTree()
+cleanUp()
+-- chopDownTree()
+
