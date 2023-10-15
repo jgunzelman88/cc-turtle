@@ -87,14 +87,14 @@ end
 function navigate(xF,yF,zF)
     -- navigate y 
     local yDis = yF - y;
-    if yDis < 0 then
+    if yDis > 0 then
         print("Moving up " .. yDis)
-        for i=yDis,0,1 do
+        for i=yDis,-1,1 do
             up()
         end
     else 
         print("Moving down " .. yDis)
-        for i=yDis,0,-1 do
+        for i=yDis,1,-1 do
             down()
         end
     end
@@ -103,13 +103,13 @@ function navigate(xF,yF,zF)
     local zDis = zF - z
     if zDis > 0 then
         print("Moving north " .. zDis)
-        for i=zDis,0,-1 do
+        for i=zDis,1,-1 do
             print("Moving forward ")
             forward()
         end
     else 
         print("Moving south " .. zDis)
-        for i=zDis,0,1 do
+        for i=zDis,-1,1 do
             print("Moving backward ")
             backward()
         end
@@ -119,17 +119,17 @@ function navigate(xF,yF,zF)
     local xDis = xF - x
     if xDis > 0 then
         print("Moving east " .. xDis)
-        for i=xDis,0,-1 do
+        for i=xDis,1,-1 do
             print("Moving forward ")
             forward()
         end
     else 
         print("Moving west " .. xDis)
-        for i=xDis,0,1 do
+        for i=xDis,-1,1 do
             print("Moving backward ")
             backward()
         end
     end
 end
 
-navigate(1,0,1)
+navigate(2,0,2)
