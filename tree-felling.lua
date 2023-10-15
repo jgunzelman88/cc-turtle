@@ -87,7 +87,7 @@ function navigate(xF,yF,zF)
     -- navigate y 
     local yDis = yF - y;
     if yDis < 0 then
-        for i=yDis,0,+1 do
+        for i=yDis,0,1 do
             up()
         end
     else 
@@ -99,7 +99,7 @@ function navigate(xF,yF,zF)
     -- navigate z
     local zDis = zF - z
     if zDis < 0 then
-        for i=zDis,0,+1 do
+        for i=zDis,0,1 do
             forward()
         end
     else 
@@ -111,7 +111,7 @@ function navigate(xF,yF,zF)
     -- navigate z
     local xDis = zF - z
     if xDis < 0 then
-        for i=xDis,0,+1 do
+        for i=xDis,0,1 do
             forward()
         end
     else 
