@@ -78,10 +78,9 @@ function down()
 end
 
 function setDirection(directionF)
-    print("Turning to" .. directionF .. " currently " .. direction)
     while direction ~= directionF do
+        print("Turning to" .. directionF .. " currently " .. direction)
         turnLeft()
-        print("turning")
     end
 end
 
