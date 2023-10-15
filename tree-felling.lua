@@ -108,8 +108,8 @@ function navigate(xF,yF,zF)
         end
     end
     setDirection("east")
-    -- navigate z
-    local xDis = zF - z
+    -- navigate x
+    local xDis = xF - x
     if xDis < 0 then
         for i=xDis,0,1 do
             forward()
