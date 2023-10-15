@@ -77,11 +77,11 @@ function down()
     turtle.down()
 end
 
-function setDirection(directionF){
+function setDirection(directionF)
     while direction != directionF do
         turnLeft()
     end
-}
+end
 
 function navigate(xF,yF,zF)
     -- navigate y 
