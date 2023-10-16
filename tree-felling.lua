@@ -11,7 +11,7 @@ function chopDownTree()
         common.forward()
         while turtle.compareUp() do
             turtle.digUp()
-            up()
+            common.up()
         end
         common.navigate(0,0,0)
         common.setDirection("south")
@@ -63,6 +63,6 @@ while true do
     chopDownTree()
     cleanUp()
     placeSappling()
-    reFuel()
+    common.reFuel()
 end
 -- 
