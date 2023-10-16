@@ -57,12 +57,20 @@ function placeSappling()
     turtle.select(sapplingSlot)
     turtle.place()
 end
--- Begin --
 
-while true do
+function fellTree()
     chopDownTree()
     cleanUp()
     placeSappling()
     common.reFuel()
+end
+
+-- Begin --
+local myTimer = os.startTimer(60)
+while true do
+    local event, timerID = os.pullEvent("timer")
+    if timerID == myTimer then 
+        fellTree()
+    end
 end
 -- 
