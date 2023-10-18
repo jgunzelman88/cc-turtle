@@ -1,10 +1,9 @@
 os.loadAPI("./common")
-woodSlot = 1
-sapplingSlot = 2
-fuelSlot = 16
+WOOD_SLOT = 1
+SAPPLING_SLOT = 2
 
 function chopDownTree()
-    turtle.select(woodSlot)
+    turtle.select(WOOD_SLOT)
     if turtle.compare() then
         print("Chopping tree")
         turtle.dig()
@@ -15,7 +14,7 @@ function chopDownTree()
         end
         common.navigate(0,0,0)
         common.setDirection("south")
-        local logs = turtle.getItemCount(woodSlot) - 1
+        local logs = turtle.getItemCount(WOOD_SLOT) - 1
         turtle.drop(logs)
     else
         print("No tree or no log found")
@@ -54,7 +53,7 @@ end
 
 function placeSappling()
     common.setDirection("north")
-    turtle.select(sapplingSlot)
+    turtle.select(SAPPLING_SLOT)
     turtle.place()
 end
 
