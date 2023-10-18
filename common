@@ -1,5 +1,5 @@
 local common = {}
-
+fuelSlot = 16
 direction = "north"
 x = 0
 y = 0
@@ -9,7 +9,7 @@ function reFuel()
     local fuelLevel = turtle.getFuelLevel()
     if fuelLevel < 100 then
         turtle.select(fuelSlot)
-        turtle.reFuel(1)
+        turtle.refuel(1)
     end
 end
 
@@ -76,14 +76,56 @@ function down()
 end
 
 function setDirection(directionF)
-    while direction ~= directionF do
-        print("Turning to " .. directionF .. " currently " .. direction)
-        turnLeft()
+    print("Turning to " .. directionF .. " currently " .. direction)
+    if direction == "north" then
+        if directionF == "south" then
+            turnRight()
+            turnRight()
+        elseif directionF == "west" then
+            turnLeft()
+        elseif directionF == "east" then
+            turnRight()
+        else 
+            return
+        end
+    elseif direction == "south" then
+        if directionF == "north" then
+            turnRight()
+            turnRight()
+        elseif directionF == "west" then
+            turnRight()
+        elseif directionF == "east" then
+            turnLeft()
+        else 
+            return
+        end
+    elseif direction == "east" then
+        if directionF == "west" then
+            turnRight()
+            turnRight()
+        elseif directionF == "north" then
+            turnLeft()
+        elseif directionF == "south" then
+            turnRight()
+        else 
+            return
+        end
+    else 
+        if directionF == "east" then
+            turnRight()
+            turnRight()
+        elseif directionF == "south" then
+            turnLeft()
+        elseif directionF == "north" then
+            turnRight()
+        else 
+            return
+        end
     end
 end
 
 function navigate(xF,yF,zF)
-    -- navigate y 
+    -- Navigate y 
     local yDis = yF - y;
     if yDis > 0 then
         print("Moving up " .. yDis)
@@ -97,7 +139,7 @@ function navigate(xF,yF,zF)
         end
     end
     setDirection("north")
-    -- navigate z
+    -- Navigate z
     local zDis = zF - z
     if zDis > 0 then
         print("Moving north " .. zDis)
@@ -113,7 +155,7 @@ function navigate(xF,yF,zF)
         end
     end
     setDirection("east")
-    -- navigate x
+    -- Navigate x
     local xDis = xF - x
     if xDis > 0 then
         print("Moving east " .. xDis)

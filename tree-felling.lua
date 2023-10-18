@@ -1,6 +1,7 @@
 os.loadAPI("./common")
-WOOD_SLOT = 1
-SAPPLING_SLOT = 2
+woodSlot = 1
+sapplingSlot = 2
+fuelSlot = 16
 
 function chopDownTree()
     turtle.select(WOOD_SLOT)
@@ -11,6 +12,13 @@ function chopDownTree()
         while turtle.compareUp() do
             turtle.digUp()
             common.up()
+            turtle.dig()
+            common.turnLeft()
+            turtle.dig()
+            common.turnLeft()
+            turtle.dig()
+            common.turnLeft()
+            turtle.dig()
         end
         common.navigate(0,0,0)
         common.setDirection("south")
@@ -45,23 +53,37 @@ function cleanUp()
     common.forward()
     common.navigate(0,0,0)
     common.setDirection("south")
-    for i=3,15,1 do 
+    for i=4,15,1 do 
         turtle.select(i)
         turtle.drop()
     end
 end
 
 function placeSappling()
+    common.navigate(0,0,0)
     common.setDirection("north")
     turtle.select(SAPPLING_SLOT)
     turtle.place()
+    turtle.select(boneSlot)
+    local notGrown = turtle.place()
+    while notGrown do
+        notGrown = turtle.place()
+    end
+end
+
+function getBoneMeal()
+    common.navigate(-1,0,0)
+    common.setDirection("south")
+    turtle.select(boneSlot)
+    turtle.suck()
 end
 
 function fellTree()
+    common.reFuel()
     chopDownTree()
     cleanUp()
+    getBoneMeal()
     placeSappling()
-    common.reFuel()
 end
 
 -- Begin --
@@ -70,6 +92,7 @@ while true do
     local event, timerID = os.pullEvent("timer")
     if timerID == myTimer then 
         fellTree()
+        myTimer = os.startTimer(60)
     end
 end
 -- 
