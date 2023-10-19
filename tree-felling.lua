@@ -1,7 +1,7 @@
 os.loadAPI("./common")
-woodSlot = 1
-sapplingSlot = 2
-fuelSlot = 16
+WOOD_SLOT = 1
+SAPPLING_SLOT = 2
+BONE_SLOT = 3
 
 function chopDownTree()
     turtle.select(WOOD_SLOT)
@@ -64,18 +64,21 @@ function placeSappling()
     common.setDirection("north")
     turtle.select(SAPPLING_SLOT)
     turtle.place()
-    turtle.select(boneSlot)
+    turtle.select(BONE_SLOT)
     local notGrown = turtle.place()
     while notGrown do
         notGrown = turtle.place()
     end
+
 end
 
 function getBoneMeal()
     common.navigate(-1,0,0)
     common.setDirection("south")
-    turtle.select(boneSlot)
-    turtle.suck()
+    turtle.select(BONE_SLOT)
+    space = turtle.getItemSpace()
+    turtle.suck(space)
+    
 end
 
 -- Begin --
