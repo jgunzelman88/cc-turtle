@@ -1,5 +1,8 @@
 os.loadAPI("common")
 
+USE_CROP = false 
+if toBoolean(arg[1]) then USE_CROP = true end
+
 WIDTH =  4 --tonumber(arg[1])
 LENGTH = 10 -- tonumber(arg[2])
 
@@ -30,6 +33,8 @@ function pickAndPlant()
   if success and data.state.age == 7 then
     turtle.select(CROP_SLOT)
     turtle.digDown()
+    SLOT = SEED_SLOT
+    if USE_CROP then SLOT = CROP_SLOT end
     turtle.select(SEED_SLOT)
     turtle.placeDown()
   end

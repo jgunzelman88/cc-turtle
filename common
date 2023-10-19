@@ -13,6 +13,14 @@ function reFuel()
     end
 end
 
+function toBoolean(str)
+  local bool = false
+  if str == "true" then
+      bool = true
+  end
+  return bool
+end
+
 function turnLeft()
     if direction == "north" then
         direction = "west"
