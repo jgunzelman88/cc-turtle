@@ -1,7 +1,7 @@
 os.loadAPI("common")
 
 USE_CROP = false 
-if toBoolean(arg[1]) then USE_CROP = true end
+if common.toBoolean(arg[1]) then USE_CROP = true end
 
 WIDTH =  4 --tonumber(arg[1])
 LENGTH = 10 -- tonumber(arg[2])
