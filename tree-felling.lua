@@ -78,21 +78,9 @@ function getBoneMeal()
     turtle.suck()
 end
 
-function fellTree()
-    common.reFuel()
-    chopDownTree()
-    cleanUp()
-    getBoneMeal()
-    placeSappling()
-end
-
 -- Begin --
-local myTimer = os.startTimer(60)
-while true do
-    local event, timerID = os.pullEvent("timer")
-    if timerID == myTimer then 
-        fellTree()
-        myTimer = os.startTimer(60)
-    end
-end
--- 
+common.reFuel()
+chopDownTree()
+cleanUp()
+getBoneMeal()
+placeSappling()

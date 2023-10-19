@@ -1,3 +1,4 @@
+os.loadAPI("common")
 
 URLS = {
   "https://raw.githubusercontent.com/jgunzelman88/cc-turtle/main/farming.lua",
@@ -12,7 +13,7 @@ function downloadAndSave(url)
   shell.run("wget", url)
 end
 
-for i = 1,#urls,1 do
+for i = 1,#URLS,1 do
   local url = URLS[i]
   downloadAndSave(url)
 end
