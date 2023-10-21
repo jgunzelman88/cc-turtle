@@ -92,6 +92,7 @@ end
 
 -- Begin --
 common.gpsInit()
+common.navigate(sX, sY, sZ)
 common.reFuel()
 chopDownTree()
 cleanUp()
