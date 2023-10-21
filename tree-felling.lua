@@ -3,6 +3,14 @@ WOOD_SLOT = 1
 SAPPLING_SLOT = 2
 BONE_SLOT = 3
 
+sX = 0
+if arg[1] then sX = tonumber(arg[1]) end
+sY = 0
+if arg[2] then sY = tonumber(arg[2]) end
+sZ = 0
+if arg[3] then sZ = tonumber(arg[3]) end
+
+
 function chopDownTree()
     turtle.select(WOOD_SLOT)
     print()
@@ -83,6 +91,7 @@ function getBoneMeal()
 end
 
 -- Begin --
+common.gpsInit()
 common.reFuel()
 chopDownTree()
 cleanUp()
