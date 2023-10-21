@@ -29,7 +29,7 @@ function chopDownTree()
             common.turnLeft()
             turtle.dig()
         end
-        common.navigate(0,0,0)
+        common.navigate(sX,sY,sZ)
         common.setDirection("south")
         local logs = turtle.getItemCount(WOOD_SLOT) - 1
         turtle.drop(logs)
@@ -60,7 +60,7 @@ function cleanUp()
     common.forward()
     turtle.suck()
     common.forward()
-    common.navigate(0,0,0)
+    common.navigate(sX,sY,sZ)
     common.setDirection("south")
     for i=4,15,1 do 
         turtle.select(i)
@@ -69,7 +69,7 @@ function cleanUp()
 end
 
 function placeSappling()
-    common.navigate(0,0,0)
+    common.navigate(sX,sY,sZ)
     common.setDirection("north")
     turtle.select(SAPPLING_SLOT)
     turtle.place()
@@ -82,7 +82,7 @@ function placeSappling()
 end
 
 function getBoneMeal()
-    common.navigate(-1,0,0)
+    common.navigate(sX-1,sY,sZ)
     common.setDirection("south")
     turtle.select(BONE_SLOT)
     space = turtle.getItemSpace()

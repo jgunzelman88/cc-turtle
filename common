@@ -60,9 +60,9 @@ end
 
 function forward()
     if direction == "north" then 
-        z = z + 1
-    elseif direction == "south" then
         z = z - 1
+    elseif direction == "south" then
+        z = z + 1
     elseif direction == "east" then
         x = x + 1
     else 
@@ -73,9 +73,9 @@ end
 
 function backward()
     if direction == "north" then 
-        z = z - 1
-    elseif direction == "south" then
         z = z + 1
+    elseif direction == "south" then
+        z = z - 1
     elseif direction == "east" then
         x = x - 1
     else 
@@ -146,6 +146,14 @@ end
 function gpsInit()
     x, y, z = gps.locate()
     print("My location: " .. x .. ", " .. y .. ", " .. z)
+    turtle.forward()
+    xD, yD, zD = gps.locate()
+    if xD < x then direction = "west" end
+    if xD > x then direction = "east" end
+    if zD < z then direction = "north" end
+    if zD > z then direction = "south" end
+    turtle.back()
+    print("My direction: " .. direction)
 end
 
 function navigate(xF,yF,zF)
@@ -169,13 +177,13 @@ function navigate(xF,yF,zF)
         print("Moving north " .. zDis)
         for i=zDis,1,-1 do
             print("Moving forward ")
-            forward()
+            backward()
         end
     else 
         print("Moving south " .. zDis)
         for i=zDis,-1,1 do
             print("Moving backward ")
-            backward()
+            forward()
         end
     end
     setDirection("east")
@@ -189,10 +197,8 @@ function navigate(xF,yF,zF)
         end
     else 
         print("Moving west " .. xDis)
-        for i=xDis,-1,1 do
             print("Moving backward ")
             backward()
-        end
     end
 end
 
