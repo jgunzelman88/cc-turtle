@@ -3,6 +3,13 @@ os.loadAPI("common")
 USE_CROP = false 
 if common.toBoolean(arg[1]) then USE_CROP = true end
 
+sX = 0
+if arg[2] then sX = tonumber(arg[2]) end
+sY = 0
+if arg[3] then sY = tonumber(arg[3]) end
+sZ = 0
+if arg[4] then sZ = tonumber(arg[4]) end
+
 WIDTH =  4 --tonumber(arg[1])
 LENGTH = 10 -- tonumber(arg[2])
 
@@ -56,7 +63,10 @@ function dropCrops()
 end
 
 print("Farming " .. WIDTH .. " x " .. LENGTH .. " plot")
-common.reFuel()
+common.gpsInit()
+common.navigate(sX,sY,sZ)
+common.setDirection("north")
+common.reFuel(sX+1,sY,sZ)
 farm()
 cleanUp()
 dropCrops()
