@@ -5,11 +5,12 @@ BONE_SLOT = 3
 
 function chopDownTree()
     turtle.select(WOOD_SLOT)
-    if turtle.compare() then
+    print()
+    if turtle.compare() and turtle.inspect() then
         print("Chopping tree")
         turtle.dig()
         common.forward()
-        while turtle.compareUp() do
+        while turtle.compareUp()  do
             turtle.digUp()
             common.up()
             turtle.dig()
