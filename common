@@ -5,12 +5,17 @@ x = 0
 y = 0
 z = 0
 
-function reFuel()
+function reFuel(xF,yF,zF)
     local fuelLevel = turtle.getFuelLevel()
     if fuelLevel < 100 then
+        navigate(xF,yF,zF)
+        setDirection("south")
         turtle.select(FUEL_SLOT)
         turtle.refuel(1)
+        local fuelSpace = turtle.getItemSpace()
+        turtle.suck(fuelSpace)
     end
+
 end
 
 function toBoolean(str)
@@ -197,8 +202,10 @@ function navigate(xF,yF,zF)
         end
     else 
         print("Moving west " .. xDis)
+        for i=xDis,-1,1 do
             print("Moving backward ")
             backward()
+        end
     end
 end
 

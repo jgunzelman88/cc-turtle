@@ -13,7 +13,7 @@ if arg[3] then sZ = tonumber(arg[3]) end
 print("Starting zone " .. sX .. ", " .. sY .. ", " .. sZ)
 function chopDownTree()
     turtle.select(WOOD_SLOT)
-    print()
+    common.navigate(sX, sY, sZ)
     if turtle.compare() and turtle.inspect() then
         print("Chopping tree")
         turtle.dig()
@@ -94,7 +94,7 @@ end
 common.gpsInit()
 common.navigate(sX, sY, sZ)
 common.setDirection("north")
-common.reFuel()
+common.reFuel(sX+1, sY, sZ)
 chopDownTree()
 cleanUp()
 getBoneMeal()
