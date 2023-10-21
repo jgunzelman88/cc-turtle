@@ -145,6 +145,7 @@ end
 
 function gpsInit()
     x, y, z = gps.locate()
+    print("Setting location: " .. x .. ", ".. ", " .. y .. ", " .. z)
     if x == nil then
         x = 0
         y = 0
