@@ -10,7 +10,7 @@ if arg[2] then sY = tonumber(arg[2]) end
 sZ = 0
 if arg[3] then sZ = tonumber(arg[3]) end
 
-
+print("Starting zone " .. sX .. ", " .. sY .. ", " .. sZ)
 function chopDownTree()
     turtle.select(WOOD_SLOT)
     print()
@@ -93,6 +93,7 @@ end
 -- Begin --
 common.gpsInit()
 common.navigate(sX, sY, sZ)
+common.setDirection("north")
 common.reFuel()
 chopDownTree()
 cleanUp()
