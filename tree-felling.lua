@@ -14,6 +14,7 @@ print("Starting zone " .. sX .. ", " .. sY .. ", " .. sZ)
 function chopDownTree()
     turtle.select(WOOD_SLOT)
     common.navigate(sX, sY, sZ)
+    setDirection("north")
     if turtle.compare() and turtle.inspect() then
         print("Chopping tree")
         turtle.dig()
